@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2012 for Windows Desktop
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CodingQuestions", "CodingQuestions\CodingQuestions.vcxproj", "{265020DF-57B2-4FC5-9B27-F386B4E61924}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{265020DF-57B2-4FC5-9B27-F386B4E61924}.Debug|Win32.ActiveCfg = Debug|Win32
+		{265020DF-57B2-4FC5-9B27-F386B4E61924}.Debug|Win32.Build.0 = Debug|Win32
+		{265020DF-57B2-4FC5-9B27-F386B4E61924}.Release|Win32.ActiveCfg = Release|Win32
+		{265020DF-57B2-4FC5-9B27-F386B4E61924}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
