@@ -1,0 +1,43 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <iostream>
+#include <stdio.h>
+#include <conio.h>
+
+int main()
+{
+	FILE *file = fopen("input.txt", "r");
+    char line[1024];
+    while (fgets(line, 1024, file)) {
+        // Do something with the line
+
+		char* str = (char*) malloc (sizeof(char)*1024);
+		strcpy(str, line);
+		int len = strlen(str);
+		int begIndex = 0;
+		int lastIndex = 0;
+		int temp = len - 2;
+		lastIndex = len - 2;
+		while(temp >= 0)
+		{
+			while(temp != 0 && str[temp] != ' ')
+			{
+				temp--;
+			}
+			begIndex = temp;
+			int temp2 = temp;
+			while(temp2 <= lastIndex)
+			{
+				if(str[temp2] != ' ')
+				printf("%c", str[temp2]);
+				temp2++;
+			}
+			lastIndex = temp - 1;
+			temp = lastIndex;
+			printf(" ");
+		}
+
+		printf("\n");
+    }
+	_getch();
+	return 0;
+}
