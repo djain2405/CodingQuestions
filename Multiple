@@ -1,0 +1,27 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <iostream>
+#include <conio.h>
+#include <stdio.h>
+
+int main()
+{
+	    FILE *file = fopen("input.txt", "r");
+    char line[1024];
+    while (fgets(line, 1024, file)) {
+        // Do something with the line
+		int x = 0;
+		int y = 0;
+		sscanf(line, "%d,%d", &x, &y);
+		int i = 2;
+		int temp = y;
+		while(temp < x)
+		{
+			temp = y*i;
+			i++;
+		}
+
+		printf("%d\n", temp);
+    }
+	_getch();
+	return 0;
+}
