@@ -1,0 +1,107 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <iostream>
+#include <stdio.h>
+#include <conio.h>
+
+struct Node
+{
+	int len;
+	char* str;
+	struct Node* next;
+};
+
+struct Node*
+	newNode(int len, char* str)
+{
+	struct Node* newnode = (struct Node*) malloc (sizeof(struct Node));
+	char* temp = (char*) malloc(sizeof(char)*1024);
+	strcpy(temp, str);
+	newnode->len = len;
+	newnode->str = temp;
+	newnode->next = NULL;
+
+	return newnode;
+}
+
+void InsertIntoLinkedList(struct Node** head, int len, char* str)
+{
+	struct Node* current = NULL;
+	struct Node* prev = NULL;
+	struct Node* temp = NULL;
+	if(*head == NULL)
+	{
+		*head = newNode(len, str);
+		return;
+	}
+
+	current = *head;
+
+	if(len > (*head)->len)
+	{
+		temp = newNode(len, str);
+		temp->next = current;
+		*head = temp;
+		return;
+	}
+
+	while(current->len > len)
+	{
+		prev = current;
+		if(current->next != NULL)
+		{
+			current = current->next;
+		}
+		else
+		{
+			temp = newNode(len, str);
+			current->next = temp;
+			return;
+		}
+	}
+
+	temp = newNode(len, str);
+	temp->next = current;
+	prev->next = temp;
+}
+
+void printLinkedlist(struct Node* head, int n)
+{
+	struct Node* current = head;int i = 0;
+	while(current != NULL && i < n)
+	{
+		printf("%s\n", current->str);
+		current = current->next;
+		i++;
+	}
+
+}
+int main(int argc, const char * argv[])
+{
+	struct Node* head = NULL;
+	int i = 0;
+	int n = 0;
+	char* str = (char*) malloc(sizeof(char)*1024);
+	FILE *file = fopen("input.txt", "r");
+    char line[1024];
+    while (fgets(line, 1024, file)) {
+        // Do something with the line
+		if(i == 0)
+		{
+			sscanf(line, "%d", &n);
+			i++;
+		}
+		else
+		{
+			int len = strlen(line);
+			strcpy(str, line);
+			InsertIntoLinkedList(&head, len, str);
+		}
+    }
+
+	printLinkedlist(head, n);
+	
+
+	_getch();
+	return 0;
+}
