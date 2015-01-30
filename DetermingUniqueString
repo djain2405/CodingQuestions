@@ -52,6 +52,26 @@ int ifUnique(char* str)
 
 	return 1;
 }
+
+int DetermineUniqueWithArray(char* str)
+{
+	int len = strlen(str);
+	int i = 0;
+	char check[256] = {0};
+	
+	for(i = 0; i < len; i++)
+	{
+		if(str[i] > 64 && str[i] < 91)
+		str[i] = str[i] - '0';
+		if(check[str[i]] == 0)
+		check[str[i]]++;
+		else
+		return 0;
+	}
+	
+	return 1;
+}
+
 int main()
 {
 
