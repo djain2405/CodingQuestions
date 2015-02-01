@@ -1,0 +1,45 @@
+int substring(char* str1, char* str2)
+{
+	int len1 = strlen(str1);
+	int len2 = strlen(str2);
+	
+	int i = 0;
+	int j = 0;
+	int firstOcc = 0;
+	
+	while(str1[i] != '\0')
+	{
+		while(str1[i] != str2[0] && str1[i] != '\0')
+		i++;
+		
+		if(str1[i] == '\0')
+		return -1;
+		
+		firstOcc = i;
+		while(str1[i] == str2[j])
+		{
+			i++;
+			j++;
+		}
+		
+		if(str2[j] == '\0')
+		return firstOcc;
+		if(str1[i] == '\0')
+		return -1;
+		
+		i = firstOcc+1;
+		j = 0;
+	}
+}
+int main()
+{
+	char* str = (char*) malloc (sizeof(char)*20);
+	gets(str);
+	char* substr = (char*) malloc (sizeof(char)*10);
+	gets(substr);
+	int result = substring(str, substr);
+	printf("%d", result);
+	
+	_getch();
+	return 0;
+}
